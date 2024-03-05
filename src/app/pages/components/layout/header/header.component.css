@@ -1,0 +1,196 @@
+.list,
+.header-right,
+.header-layout {
+  display: flex;
+  align-items: center;
+}
+
+.list,
+.header-right {
+  gap: 23px;
+}
+
+.header-layout {
+  justify-content: space-between;
+  height: 70px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+li {
+  list-style: none;
+}
+
+.img {
+  width: 25px;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header-right .info {
+  position: relative;
+}
+
+.profile {
+  position: absolute;
+  width: 360px;
+  height: 87vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  top: 40px;
+  right: 0;
+  padding: 16px 32px;
+  background-color: white;
+  box-shadow: rgba(145, 158, 171, 0.3) 0px 0px 2px 0px,
+    rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
+  border-radius: 7px;
+  z-index: 10;
+  border: 1px solid #eee;
+}
+
+.profile::-webkit-scrollbar {
+  width: 2px;
+}
+
+.profile h4 {
+  font-size: 17.2px;
+  font-weight: 600;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 24px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.profile-info .img {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-info .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-info div h5 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.profile-info div span {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.profile-info div span img {
+  width: 16px;
+}
+
+.profile-info .d1 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-list {
+  padding: 24px 0;
+}
+
+.profile-list .box {
+  display: flex;
+  gap: 15px;
+  padding: 16px 0;
+}
+
+.profile-list .box .img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background-color: #ecf2ff;
+  border-radius: 7px;
+}
+
+.profile-list .box .img img {
+  width: 20px;
+  height: 20px;
+}
+
+.profile-list .box h4 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.profile-list .box span {
+  font-size: 14px;
+  color: #2a3547;
+}
+
+.profile button {
+  width: 100%;
+  padding: 8px 0;
+  color: #5d87ff;
+  background-color: white;
+  border: 1px solid #5d87ff;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+.banner {
+  position: relative;
+  display: flex;
+  background-color: #ecf2ff;
+  height: 148px;
+  margin-bottom: 24px;
+  border-radius: 7px;
+  padding: 24px;
+}
+
+.banner img {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+
+.banner h5 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.banner .btn {
+  font-size: 14px;
+  color: white;
+  background-color: #5d87ff;
+  text-align: center;
+  padding: 8px 15px;
+  border-radius: 7px;
+  margin-top: 15px;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+}

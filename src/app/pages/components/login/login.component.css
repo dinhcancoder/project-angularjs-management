@@ -1,0 +1,170 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #1b1d21;
+}
+
+.login {
+  display: grid;
+  grid-template-columns: 1fr 435px;
+  width: 100%;
+  height: 600px;
+  background-image: linear-gradient(
+    to right top,
+    #12d3cf,
+    #1ba7b0,
+    #297d8b,
+    #2d5662,
+    #263238
+  );
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.login-svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-svg img {
+  width: 68%;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.logo {
+  width: 40px;
+}
+
+.form-title {
+  display: block;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  margin: 15px 0 10px 0;
+}
+
+.desc {
+  font-size: 13px;
+  color: #444;
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.form-error {
+  font-size: 13px;
+  display: block;
+  margin-top: 8px;
+  color: rgba(222, 41, 41, 0.886);
+}
+
+.form-title {
+  font-size: 14px;
+  color: #666 !important;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+  letter-spacing: 0.1px;
+}
+
+.form-input {
+  width: 350px;
+  border: 1px solid #eee !important;
+  padding: 13px 0;
+  border-radius: 5px;
+  text-indent: 20px;
+}
+
+.form-input:not(:placeholder-shown) + label,
+.form-input:focus + label {
+  color: #4a6cf7 !important;
+  top: 0;
+  font-size: 12.25px;
+  background-color: white;
+}
+
+.form-input:not(:focus) + label {
+  color: unset !important;
+}
+
+.form-input:focus {
+  border-color: #4a6cf7;
+}
+
+.flex {
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.remember {
+  color: #222;
+}
+
+.forgot {
+  color: #666;
+}
+
+.form-btn {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  color: white;
+  padding: 12px 0;
+  font-weight: 500;
+  margin-bottom: 15px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.btn--black {
+  background-color: #222;
+}
+
+.btn--gray {
+  color: black;
+  background-color: #eee;
+}
+
+.form-btn img {
+  width: 20px;
+}
+
+.footer {
+  font-size: 13px;
+  margin-top: 25px;
+}

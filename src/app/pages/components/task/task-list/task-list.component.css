@@ -1,0 +1,75 @@
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ecf2ff !important;
+  padding: 30px;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.banner-left span {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.banner-right img {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  width: 150px;
+  object-fit: cover;
+}
+
+.banner-right button {
+  position: relative;
+  box-shadow: 3px 5px 10px rgba(248, 248, 248, 0.25);
+}
+
+.project-add {
+  font-size: 14px;
+  color: white;
+  background-color: #4a6cf7;
+  padding: 11px 20px;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+
+.list-task {
+  font-size: 14px;
+}
+
+.list-task:not(:first-child) {
+  margin-top: 32px;
+}
+
+.task-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  letter-spacing: 0.2px;
+}
+
+.priority-0 {
+  background-color: #f3b448 !important;
+}
+
+.priority-1 {
+  background-color: #48b4f3 !important;
+}
+
+.priority-2 {
+  background-color: #f34848 !important;
+}

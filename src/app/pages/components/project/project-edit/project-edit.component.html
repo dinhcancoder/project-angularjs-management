@@ -1,0 +1,136 @@
+<div class="banner">
+  <div class="banner-left">
+    <div class="title">Project Edit</div>
+    <span>Dashboard / Project / Edit</span>
+  </div>
+  <div class="banner-right">
+    <img
+      src="	https://modernize-angular-main.netlify.app/assets/images/breadcrumb/ChatBc.png"
+      alt=""
+    />
+  </div>
+</div>
+<div class="p-4 md:p-5 space-y-4">
+  <label
+    for="helper-text"
+    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+    >Project Name</label
+  >
+  <input
+    type="text"
+    id="helper-text"
+    aria-describedby="helper-text-explanation"
+    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    placeholder="Ex: ReactJS..."
+    [(ngModel)]="projectData.name"
+  />
+  <div class="grid gap-6 mb-6 lg:grid-cols-2">
+    <div>
+      <label
+        for="first_name"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        >Budget</label
+      >
+      <input
+        type="text"
+        id="first_name"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="0"
+        required
+        [(ngModel)]="projectData.budget"
+      />
+    </div>
+
+    <div>
+      <label
+        for="phone"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        >Exprense</label
+      >
+      <input
+        type="text"
+        id="phone"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="0"
+        required
+        [(ngModel)]="projectData.exprense"
+      />
+    </div>
+  </div>
+  <div class="grid gap-6 mb-6 lg:grid-cols-2">
+    <div>
+      <label
+        for="first_name"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        >Team Size</label
+      >
+      <input
+        type="text"
+        id="first_name"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="0"
+        required
+        [(ngModel)]="projectData.teamSize"
+      />
+    </div>
+
+    <div>
+      <label
+        for="phone"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        >Start Date</label
+      >
+      <input
+        type="date"
+        id="phone"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="0"
+        required
+        [(ngModel)]="projectData.startDate"
+      />
+    </div>
+  </div>
+  <label
+    for="countries"
+    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+    >Status Project</label
+  >
+  <select
+    [(ngModel)]="projectData.status"
+    id="countries"
+    class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  >
+    <option value="Planning">Planning</option>
+    <option value="Developing">Developing</option>
+    <option value="Executing">Executing</option>
+    <option value="Review">Review</option>
+    <option value="Completed">Completed</option>
+  </select>
+  <div class="flex items-start mb-6">
+    <div class="flex items-center h-5">
+      <input
+        checked
+        id="remember"
+        type="checkbox"
+        value=""
+        class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+        required
+      />
+    </div>
+    <label
+      for="remember"
+      class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+      >I agree with the
+      <a href="#" class="text-blue-600 hover:underline dark:text-blue-500"
+        >terms and conditions</a
+      >.</label
+    >
+  </div>
+  <button
+    (click)="handleUpdate()"
+    type="button"
+    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+  >
+    Update Project
+  </button>
+</div>

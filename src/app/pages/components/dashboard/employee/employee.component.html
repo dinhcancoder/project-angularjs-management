@@ -1,0 +1,131 @@
+<div class="grid">
+  <div class="row">
+    <div class="banner">
+      <h4>Welcome back {{ employeeProfile?.username }}!</h4>
+      <p>You have earned 54% more than last month which is great thing.</p>
+      <button>Check</button>
+      <div class="img">
+        <img
+          src="https://modernize-angular-main.netlify.app/assets/images/backgrounds/welcome-bg2.png"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="flex justify-between items-center mt-8">
+      <div class="kan">
+        <h5>Participating projects</h5>
+        <span class="block mt-2">Best Project</span>
+      </div>
+      <div class="search">
+        <input type="text" placeholder="Enter your text ..." />
+        <select>
+          <option value="0">All</option>
+          <option value="1">Employee</option>
+          <option value="2">Leader</option>
+          <option value="3">Super Admin</option>
+        </select>
+      </div>
+    </div>
+    <div class="project" *ngIf="listProject && listProject.length !== 0">
+      <div class="project-item" *ngFor="let project of listProject">
+        <div class="project-top">
+          <span>Employee Join: {{ project.countJoin }}</span>
+          <span>Status: {{ project.status }}</span>
+        </div>
+        <div class="project-content">
+          <div class="project-desc project-name">
+            Project: #{{ project.name }}
+          </div>
+          <div class="project-row">
+            Team Size:
+            <span style="font-weight: 500">{{ project.teamSize }}</span>
+          </div>
+          <div class="project-row">
+            Budget:
+            <span style="font-weight: 500"
+              >{{ formattedNumber(project.budget) }}đ</span
+            >
+          </div>
+          <div class="project-row">
+            Exprense:
+            <span style="font-weight: 500"
+              >{{ formattedNumber(project.exprense) }}đ</span
+            >
+          </div>
+          <div class="project-row">
+            Start Date:
+            <span style="font-weight: 500">{{ project.startDate }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      *ngIf="listProject && listProject.length === 0"
+      class="flex flex-col items-center justify-center pt-8"
+    >
+      <img
+        src="https://cdn.divineshop.vn/static/4e0db8ffb1e9cac7c7bc91d497753a2c.svg"
+        alt=""
+      />
+      <h1 class="mt-5" style="font-size: 16px">
+        Haven't participated in any projects yet
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="k">
+      <div class="box">
+        <div class="img">
+          <img
+            src="https://modernize-angular-main.netlify.app/assets/images/svgs/icon-office-bag-2.svg"
+            alt=""
+          />
+        </div>
+        <h3>Project</h3>
+        <span>78,298</span>
+      </div>
+      <div class="box">
+        <div class="img">
+          <img
+            src="https://modernize-angular-main.netlify.app/assets/images/svgs/icon-paypal.svg"
+            alt=""
+          />
+        </div>
+        <h3>Payments</h3>
+        <span>$678,298</span>
+      </div>
+    </div>
+    <div class="employee-right">
+      <h5>Members of the group</h5>
+      <span>Best Employees</span>
+      <div class="img">
+        <img
+          src="https://modernize-angular-main.netlify.app/assets/images/backgrounds/piggy.png"
+          alt=""
+        />
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-top">
+            <div class="card-info">
+              <h6>MaterialPro</h6>
+              <p>$23,568</p>
+            </div>
+            <span>55%</span>
+          </div>
+          <div class="card-w"></div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <div class="card-info">
+              <h6>Flexy Admin</h6>
+              <p>$23,568</p>
+            </div>
+            <span>55%</span>
+          </div>
+          <div class="card-w"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,133 @@
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ecf2ff !important;
+  padding: 30px;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.banner-left span {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.banner-right img {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  width: 150px;
+  object-fit: cover;
+}
+
+.banner-right button {
+  position: relative;
+  box-shadow: 3px 5px 10px rgba(248, 248, 248, 0.25);
+}
+
+.project {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+.project-item {
+  box-shadow: #919eab4d 0 0 2px, #919eab1f 0 12px 24px -4px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px;
+  color: white;
+}
+
+.project-item:nth-child(1) .project-top,
+.project-item:nth-child(4) .project-top,
+.project-item:nth-child(7) .project-top {
+  background-color: #5d87ff !important;
+}
+
+.project-item:nth-child(2) .project-top,
+.project-item:nth-child(5) .project-top,
+.project-item:nth-child(8) .project-top {
+  background-color: #fa896b !important;
+}
+
+.project-item:nth-child(3) .project-top,
+.project-item:nth-child(6) .project-top,
+.project-item:nth-child(9) .project-top {
+  background-color: #ffae1f !important;
+}
+
+.project-content {
+  text-align: center;
+  padding: 25px 0;
+}
+
+.project-desc {
+  font-size: 16.5px;
+  font-weight: 500;
+}
+
+.project-name {
+  font-size: 19px;
+}
+
+.project-row {
+  font-size: 14px;
+  color: #444;
+  padding: 2.5px 0;
+}
+
+.project-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 13px 0;
+  border-top: 1px solid #eee;
+}
+
+.project-bottom button {
+  transition: 0.2s;
+}
+
+.project-bottom button:hover {
+  color: #4a6cf7;
+}
+
+.add {
+  display: flex;
+  justify-content: end;
+}
+
+.project-add {
+  font-size: 14px;
+  color: white;
+  background-color: #4a6cf7;
+  padding: 11px 20px;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+
+.empty {
+  grid-column: 3 span;
+  display: flex;
+  justify-content: center;
+}
+
+.empty img {
+  width: 250px;
+}

@@ -1,0 +1,202 @@
+<div class="grid">
+  <div class="box" style="--color: rgb(93, 135, 255); --bg: #ecf2ff">
+    <div class="img">
+      <img
+        src="https://modernize-angular-main.netlify.app/assets/images/svgs/icon-user-male.svg"
+        alt=""
+      />
+    </div>
+    <h4>Employees</h4>
+    <h6>{{ countEmployee }}</h6>
+  </div>
+  <div class="box" style="--color: rgb(255, 174, 31); --bg: #fef5e5">
+    <div class="img">
+      <img
+        src="https://modernize-angular-main.netlify.app/assets/images/svgs/icon-briefcase.svg"
+        alt=""
+      />
+    </div>
+    <h4>Clients</h4>
+    <h6>5</h6>
+  </div>
+  <div class="box" style="--color: rgb(73, 190, 255); --bg: #e8f7ff">
+    <div class="img">
+      <img
+        src="https://modernize-angular-main.netlify.app/assets/images/svgs/icon-mailbox.svg"
+        alt=""
+      />
+    </div>
+    <h4>Projects</h4>
+    <h6>3</h6>
+  </div>
+  <div class="box" style="--color: rgb(250, 137, 107); --bg: #fdede8">
+    <div class="img">
+      <img
+        src="https://modernize-angular-main.netlify.app/assets/images/svgs/icon-favorites.svg"
+        alt=""
+      />
+    </div>
+    <h4>Events</h4>
+    <h6>696</h6>
+  </div>
+  <div class="box" style="--color: rgb(19, 222, 185); --bg: #e6fffa">
+    <div class="img">
+      <img
+        src="https://modernize-angular-main.netlify.app/assets/images/svgs/icon-speech-bubble.svg"
+        alt=""
+      />
+    </div>
+    <h4>Payroll</h4>
+    <h6>$96k</h6>
+  </div>
+  <div class="box" style="--color: rgb(73, 190, 255); --bg: #e8f7ff">
+    <div class="img">
+      <img
+        src="https://modernize-angular-main.netlify.app/assets/images/svgs/icon-connect.svg"
+        alt=""
+      />
+    </div>
+    <h4>Reports</h4>
+    <h6>59</h6>
+  </div>
+</div>
+
+<div class="employee">
+  <div class="employee-layout">
+    <div class="employee-left">
+      <div class="flex justify-between items-center">
+        <div>
+          <h5>Members of the group</h5>
+          <span>Best Employees</span>
+        </div>
+        <div class="search">
+          <input
+            type="text"
+            placeholder="Enter your text ..."
+            [(ngModel)]="username"
+            (keydown)="handleSearchEmployee()"
+          />
+          <select [(ngModel)]="roleID" (change)="handleSearchEmployee()">
+            <option value="0">All</option>
+            <option value="1">Employee</option>
+            <option value="2">Leader</option>
+            <option value="3">Super Admin</option>
+          </select>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr style="border-bottom: 1px solid #eee">
+            <th>User</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of listEmployee">
+            <td>
+              <div class="info">
+                <div class="img">
+                  <img src="{{ employee.avatar }}" />
+                </div>
+                <div>
+                  <h6>{{ employee.username }}</h6>
+                  <span
+                    style="--bg: #5d87ff; --color: #fff"
+                    [ngSwitch]="employee.roleID"
+                  >
+                    <span *ngSwitchCase="1">Employee</span>
+                    <span *ngSwitchCase="2">Leader</span>
+                    <span *ngSwitchCase="3">Super Admin</span>
+                  </span>
+                </div>
+              </div>
+            </td>
+            <td>{{ employee.email }}</td>
+            <td>
+              <span
+                style="--bg: #5d87ff; --color: #fff"
+                [ngSwitch]="employee.roleID"
+              >
+                <span *ngSwitchCase="1">Employee</span>
+                <span *ngSwitchCase="2">Leader</span>
+                <span *ngSwitchCase="3">Super Admin</span>
+              </span>
+            </td>
+            <td>{{ employee.status }}</td>
+            <td *ngIf="employee.id !== employeeProfile?.id">
+              <a href="" style="color: rgb(234, 84, 30)">Block </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="employee-right">
+      <h3 class="title">Payment Gateways</h3>
+      <span class="desc">Platform For Income</span>
+      <div class="item-k">
+        <div class="item-left">
+          <div class="img" style="--bg-color: #ecf2ff">
+            <img
+              src="	https://modernize-angular-main.netlify.app/assets/images/svgs/icon-paypal.svg"
+              alt=""
+            />
+          </div>
+          <div class="item-box">
+            <h4>Paypal</h4>
+            <span style="color: #555">Big Brands</span>
+          </div>
+        </div>
+        <span style="font-weight: 500">+$6235</span>
+      </div>
+      <div class="item-k">
+        <div class="item-left">
+          <div class="img" style="--bg-color: #e6fffa">
+            <img
+              src="	https://modernize-angular-main.netlify.app/assets/images/svgs/icon-office-bag.svg"
+              alt=""
+            />
+          </div>
+          <div class="item-box">
+            <h4>Paypal</h4>
+            <span style="color: #555">Big Brands</span>
+          </div>
+        </div>
+        <span style="font-weight: 500">+$862</span>
+      </div>
+      <div class="item-k">
+        <div class="item-left">
+          <div class="img" style="--bg-color: #fef5e5">
+            <img
+              src="	https://modernize-angular-main.netlify.app/assets/images/svgs/icon-master-card.svg"
+              alt=""
+            />
+          </div>
+          <div class="item-box">
+            <h4>Paypal</h4>
+            <span style="color: #555">Big Brands</span>
+          </div>
+        </div>
+        <span style="font-weight: 500">+$2235</span>
+      </div>
+      <div class="item-k">
+        <div class="item-left">
+          <div class="img" style="--bg-color: #fdede8">
+            <img
+              src="https://modernize-angular-main.netlify.app/assets/images/svgs/icon-pie.svg"
+              alt=""
+            />
+          </div>
+          <div class="item-box">
+            <h4>Paypal</h4>
+            <span style="color: #555">Big Brands</span>
+          </div>
+        </div>
+        <span style="font-weight: 500">+$32</span>
+      </div>
+      <button>View all Transctions</button>
+    </div>
+  </div>
+</div>

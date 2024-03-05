@@ -1,0 +1,80 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="login">
+      <div class="login-svg">
+        <img
+          src="https://tailwindcomponents.com/svg/website-designer-bro.svg"
+          alt=""
+        />
+      </div>
+      <div class="login-form">
+        <div class="logo">
+          <img src="assets/images/star.svg" alt="" />
+        </div>
+        <div class="title">Welcome back!</div>
+        <div class="desc">Please enter your details</div>
+        <form (submit)="handleLogin()" [formGroup]="loginForm">
+          <div class="mb-20">
+            <div class="form-group">
+              <input
+                class="form-input"
+                placeholder=""
+                type="text"
+                formControlName="email"
+              />
+              <label class="form-title" for="">Email</label>
+            </div>
+            <span
+              class="form-error"
+              *ngIf="
+                loginForm.get('email')?.hasError('required') &&
+                loginForm.get('email')?.touched
+              "
+              >Vui lòng nhập trường này !</span
+            >
+            <span
+              class="form-error"
+              *ngIf="emailNotFound && loginForm.value.email !== ''"
+              >Email này không tồn tại !</span
+            >
+          </div>
+          <div class="mb-20">
+            <div class="form-group">
+              <input
+                class="form-input"
+                placeholder=""
+                type="password"
+                formControlName="password"
+              />
+              <label class="form-title" for="">Password</label>
+            </div>
+            <span
+              class="form-error"
+              *ngIf="
+                loginForm.get('password')?.hasError('required') &&
+                loginForm.get('password')?.touched
+              "
+              >Vui lòng nhập trường này !</span
+            >
+            <span
+              class="form-error"
+              *ngIf="passwordError && loginForm.value.email !== ''"
+              >Mật khẩu không chính xác !</span
+            >
+          </div>
+          <div class="flex">
+            <div class="remember">Remember for 30 days</div>
+            <div class="forgot">Forgot password</div>
+          </div>
+          <button class="form-btn btn--black" (click)="handleLogin()">
+            Login
+          </button>
+          <div class="form-btn btn--gray">
+            <img src="assets/images/google.svg" alt="" /> Login in with Google
+          </div>
+        </form>
+        <p class="footer">Don't have an account? <a href="">Sign Up</a></p>
+      </div>
+    </div>
+  </div>
+</div>

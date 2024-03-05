@@ -1,0 +1,306 @@
+<div class="banner">
+  <div class="banner-left">
+    <div class="title">Task List</div>
+    <span>Dashboard / Task / List</span>
+  </div>
+  <div class="banner-right">
+    <img
+      src="	https://modernize-angular-main.netlify.app/assets/images/breadcrumb/ChatBc.png"
+      alt=""
+    />
+    <button
+      class="project-add"
+      data-modal-target="addTask"
+      data-modal-toggle="addTask"
+    >
+      Add Task
+    </button>
+  </div>
+</div>
+
+<div style="margin-top: 32px">
+  <div class="list-task" *ngFor="let project of listProject">
+    <div class="task-head">
+      <div class="task-title">#{{ project.name }}</div>
+      <div class="sort">Sort</div>
+    </div>
+    <ul class="task-list">
+      <div class="grid grid-cols-3 gap-6">
+        <ng-container *ngFor="let task of listTask">
+          <ng-container
+            *ngIf="
+              task.projectID === project.id &&
+              task.employeeID === employeeProfile?.id
+            "
+          >
+            <div
+              class="mb-6 rounded-lg bg-white"
+              style="
+                border: 1px solid #f8f8f8;
+                box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.035);
+              "
+            >
+              <div class="flex items-center justify-between px-6 pt-6">
+                <div class="flex items-center">
+                  <img
+                    class="mr-2 h-10 w-10 rounded-full object-cover"
+                    [src]="task.employeeData.avatar"
+                    alt="profile"
+                  />
+                  <div>
+                    <h3 class="text-base font-semibold text-gray-800">
+                      {{ task.employeeData.username }}
+                    </h3>
+                    <span
+                      class="block text-xs font-normal text-gray-500"
+                      [ngSwitch]="task.employeeData.roleID"
+                    >
+                      <span *ngSwitchCase="1">Employee</span>
+                      <span *ngSwitchCase="2">Leader</span>
+                      <span *ngSwitchCase="3">Super Admin</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <img
+                    [routerLink]="['/admin/task/edit', task.id]"
+                    class="w-5 cursor-pointer"
+                    src="../../../../../assets/images/edit.svg"
+                    alt=""
+                  />
+                  <img
+                    (click)="handleDeleteTask(task.id)"
+                    class="w-5 cursor-pointer"
+                    src="../../../../../assets/images/delete.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div style="border: 1px solid #f9f9f9; margin-top: 16px"></div>
+              <div class="px-6 pb-6">
+                <div class="flex items-center justify-between">
+                  <h3 class="my-4 font-semibold text-base text-blue-500">
+                    # {{ task.name }}
+                  </h3>
+                  <div
+                    [ngClass]="{
+                      'priority-0': task.priority === 'Low',
+                      'priority-1': task.priority === 'Medium',
+                      'priority-2': task.priority === 'Hight'
+                    }"
+                    class="text-xs text-white px-2 py-1 rounded"
+                  >
+                    {{ task.priority }}
+                  </div>
+                </div>
+                <p class="text-sm font-normal text-gray-500">
+                  {{ task.description }}
+                </p>
+                <div
+                  class="mt-6 flex items-center justify-between text-sm text-gray-900"
+                >
+                  <div class="flex items-center">Status: {{ task.status }}</div>
+                  <div class="flex items-center">
+                    Progress: {{ task.progress }}%
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </ul>
+  </div>
+</div>
+
+<!-- Main modal -->
+<div
+  id="addTask"
+  tabindex="-1"
+  aria-hidden="true"
+  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+>
+  <div class="relative p-4 w-full max-w-2xl max-h-full">
+    <!-- Modal content -->
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <!-- Modal header -->
+      <div
+        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+      >
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+          Add new task
+        </h3>
+        <button
+          type="button"
+          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          data-modal-hide="addTask"
+        >
+          <svg
+            class="w-3 h-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+            />
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+      </div>
+      <!-- Modal body -->
+      <div class="p-4 md:p-5 space-y-4">
+        <div class="grid gap-6 mb-6 lg:grid-cols-2">
+          <div>
+            <label
+              for="helper-text"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Task Name</label
+            >
+            <input
+              [(ngModel)]="formDataTask.name"
+              type="text"
+              id="helper-text"
+              aria-describedby="helper-text-explanation"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Ex: Create edit project ..."
+            />
+          </div>
+          <div>
+            <label
+              for="first_name"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >Priority</label
+            >
+            <select
+              [(ngModel)]="formDataTask.priority"
+              id="countries"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="Hight">Hight</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-6 lg:grid-cols-3">
+          <div>
+            <label
+              for="first_name"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >Project</label
+            >
+            <select
+              (change)="getEmployeesByProjectID()"
+              [(ngModel)]="projectID"
+              [(ngModel)]="formDataTask.projectID"
+              id="countries"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option [value]="project.id" *ngFor="let project of listProject">
+                {{ project.name }}
+              </option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              for="phone"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >Employee</label
+            >
+            <select
+              [(ngModel)]="formDataTask.employeeID"
+              id="countries"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option
+                [value]="employee.id"
+                *ngFor="let employee of listEmployee"
+              >
+                {{ employee.username }}
+              </option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              for="first_name"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >Status</label
+            >
+            <select
+              [(ngModel)]="formDataTask.status"
+              id="countries"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option value="Not Started">Not Started</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Partially Completed">Partially Completed</option>
+              <option value="Almost Completed">Almost Completed</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+        </div>
+        <label
+          for="helper-text"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Description</label
+        >
+        <input
+          [(ngModel)]="formDataTask.description"
+          type="text"
+          id="helper-text"
+          aria-describedby="helper-text-explanation"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Enter your text"
+        />
+        <div class="flex items-start mb-6">
+          <div class="flex items-center h-5">
+            <input
+              checked
+              id="remember"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+              required
+            />
+          </div>
+          <label
+            for="remember"
+            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+            >I agree with the
+            <a href="#" class="text-blue-600 hover:underline dark:text-blue-500"
+              >terms and conditions</a
+            >.</label
+          >
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div
+        class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"
+      >
+        <button
+          (click)="handleAddTask()"
+          data-modal-hide="addTask"
+          type="button"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Add new
+        </button>
+        <button
+          data-modal-hide="addTask"
+          type="button"
+          class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

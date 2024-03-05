@@ -1,0 +1,103 @@
+<div class="header">
+  <div class="header-layout">
+    <div class="header-left">
+      <div class="list">
+        <div class="img">
+          <img src="assets/images/h4.svg" alt="" />
+        </div>
+        <li><a href="#!">Home</a></li>
+        <li><a href="#!">Categories</a></li>
+        <li><a href="#!">Blog</a></li>
+        <li><a href="#!">Contact</a></li>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="img">
+        <img src="assets/images/h1.svg" alt="" />
+      </div>
+      <div class="img">
+        <img src="assets/images/h3.svg" alt="" />
+      </div>
+      <div class="img">
+        <img src="assets/images/h2.svg" alt="" />
+      </div>
+      <div class="info" (click)="showProfile()">
+        <div class="avatar">
+          <img [src]="employeeProfile?.avatar" />
+        </div>
+        <div class="profile" *ngIf="isShowProfile">
+          <h4>User Profile</h4>
+          <div class="profile-info">
+            <div class="img">
+              <img [src]="employeeProfile?.avatar" />
+            </div>
+            <div class="d1">
+              <h5>{{ employeeProfile?.username }}</h5>
+              <span [ngSwitch]="employeeProfile.roleID">
+                <span *ngSwitchCase="1">Employee</span>
+                <span *ngSwitchCase="2">Leader</span>
+                <span *ngSwitchCase="3">Super Admin</span>
+              </span>
+              <span
+                ><img src="assets/images/mail.svg" alt="" />
+                {{ employeeProfile?.email }}</span
+              >
+            </div>
+          </div>
+          <div class="profile-list">
+            <div class="box">
+              <div class="img">
+                <img
+                  src="https://modernize-angular-main.netlify.app/assets/images/svgs/icon-account.svg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <h4>My Profile</h4>
+                <span>Account Settings</span>
+              </div>
+            </div>
+            <div class="box">
+              <div class="img">
+                <img
+                  src="https://modernize-angular-main.netlify.app/assets/images/svgs/icon-inbox.svg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <h4>My Inbox</h4>
+                <span>Messages & Email</span>
+              </div>
+            </div>
+            <div class="box">
+              <div class="img">
+                <img
+                  src="https://modernize-angular-main.netlify.app/assets/images/svgs/icon-tasks.svg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <h4>My Tasks</h4>
+                <span>To-do and Daily Tasks</span>
+              </div>
+            </div>
+          </div>
+          <div class="banner">
+            <div>
+              <h5>
+                Unlimited <br />
+                Access
+              </h5>
+              <div class="btn">Upgrade</div>
+            </div>
+            <img
+              src="https://modernize-angular-main.netlify.app/assets/images/backgrounds/unlimited-bg.png"
+              alt=""
+            />
+          </div>
+          <button (click)="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

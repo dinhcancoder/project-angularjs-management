@@ -1,0 +1,72 @@
+<div class="sidebar">
+  <div class="logo"><img src="assets/images/logo.svg" alt="" /> KanIsDev</div>
+  <ul class="list">
+    <li>
+      <a
+        [routerLink]="['/admin']"
+        [class.active]="activeLink === 'dashboard'"
+        (click)="setActiveLink('dashboard')"
+        ><img src="assets/images/sidebar1.svg" alt="" /> Dashboard</a
+      >
+    </li>
+    <li>
+      <a
+        [routerLink]="['/admin']"
+        [class.active]="activeLink === 'statistical'"
+        (click)="setActiveLink('statistical')"
+        ><img src="assets/images/sidebar6.svg" alt="" /> Statistical</a
+      >
+    </li>
+    <li>
+      <a
+        [routerLink]="['/admin/employee']"
+        [class.active]="activeLink === 'employees'"
+        (click)="setActiveLink('employees')"
+        ><img src="assets/images/sidebar2.svg" alt="" /> Members</a
+      >
+    </li>
+    <li *ngIf="employeeProfile?.roleID === 2 || employeeProfile?.roleID === 3">
+      <a
+        [routerLink]="['/admin/project']"
+        [class.active]="activeLink === 'projects'"
+        (click)="setActiveLink('projects')"
+        ><img src="assets/images/sidebar3.svg" alt="" /> Projects</a
+      >
+    </li>
+    <li *ngIf="employeeProfile?.roleID === 1">
+      <a
+        [routerLink]="['/admin/task']"
+        [class.active]="activeLink === 'tasks'"
+        (click)="setActiveLink('tasks')"
+        ><img src="assets/images/sidebar4.svg" alt="" /> Tasks</a
+      >
+    </li>
+    <li>
+      <a
+        [class.active]="activeLink === 'setting'"
+        (click)="setActiveLink('setting')"
+        ><img src="assets/images/sidebar5.svg" alt="" /> Setting</a
+      >
+    </li>
+  </ul>
+  <div class="info">
+    <div class="info-layout">
+      <div class="info-left">
+        <div class="info-avatar">
+          <img src="{{ employeeProfile?.avatar }}" alt="" />
+        </div>
+        <div class="info-user">
+          <h5>{{ employeeProfile?.username }}</h5>
+          <span [ngSwitch]="employeeProfile?.roleID">
+            <span *ngSwitchCase="1">Employee</span>
+            <span *ngSwitchCase="2">Leader</span>
+            <span *ngSwitchCase="3">Super Admin</span>
+          </span>
+        </div>
+      </div>
+      <div class="info-right" (click)="logout()">
+        <img src="assets/images/power-outline.svg" alt="" />
+      </div>
+    </div>
+  </div>
+</div>
